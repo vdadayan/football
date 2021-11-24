@@ -1,0 +1,10 @@
+html, body, #root, .App, .MuiContainer-root, .MuiGrid-container {
+  height: 100%;
+}
+.MuiGrid-root {
+  flex-direction: column;
+  flex-wrap: nowrap !important;
+}
+.main {
+  flex: 1 0 auto;
+}
