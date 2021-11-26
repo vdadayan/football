@@ -1,24 +1,19 @@
 import {data} from "../../api/api";
+import {countryType, IInitialState} from "../../types/types";
+import {InferActionsType} from "../store";
 
 const COUNTRIES = 'COUNTRIES'
 
-export type countryType = {
-    country_id: string
-    country_logo: string
-    country_name: string
+const initialState: IInitialState = {
+    countries: []
 }
 
-const initialState: countryType = {
-    country_id: '',
-    country_logo: '',
-    country_name: ''
-}
-
-export const countriesReducer = (state = initialState, action: any) => {
+export const countriesReducer = (state = initialState, action: ActionsType) => {
     switch (action.type) {
         case COUNTRIES: {
             return {
-                ...action.countries
+                ...state,
+               countries: action.countries
             }
         }
         default: {
@@ -29,13 +24,16 @@ export const countriesReducer = (state = initialState, action: any) => {
     }
 }
 
-export const countriesAction = (countries: countryType[]) => {
-    return {type: COUNTRIES, countries}
+type ActionsType = InferActionsType<typeof actions>
+const actions = {
+     countriesAction:(countries: countryType[]) => {
+        return ({type: COUNTRIES, countries} as const)
+    }
 }
 
 
 export const countriesThunk = () => async (dispatch: any) => {
     const response = await data.getCountries()
-    dispatch(countriesAction(response))
+    dispatch(actions.countriesAction(response))
 
 }

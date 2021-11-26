@@ -14,7 +14,6 @@ function App() {
                         <Header/>
                     </Grid>
                     <Grid className='main' item>
-                        main
                         <List/>
                     </Grid>
                     <Grid item>
