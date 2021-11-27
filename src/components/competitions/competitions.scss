@@ -1,5 +1,13 @@
 .competitions {
   &__inner {
-
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 30px 30px;
+  }
+  &__item {
+    height: 115px;
+    padding: 15px;
+    background-color: #f4f4f4;
   }
 }

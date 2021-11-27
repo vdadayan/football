@@ -47,7 +47,7 @@ const ListItem: FC<ListItemType> = ({image, country, id}) => {
         dispatch(competitionsThunk(id))
     }
     return (
-        <NavLink to={'countries/' + country}>
+        <NavLink to={'countries/' + country + '-' + id}>
             <div className='list__item' id={id} onClick={(e) => chooseCountry(e)}>
                 <img src={image} alt="pic"/>
                 <span>{country}</span>
