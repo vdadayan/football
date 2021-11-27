@@ -7,7 +7,7 @@ import {AppStateType} from "../redux/store";
 export const useCountries = () => {
     const dispatch = useDispatch()
     const [load, setLoad] = useState(false)
-    const {countries} = useSelector((state: AppStateType) => state)
+    const countries = useSelector((state: AppStateType) => state.countries.countries)
     const fetchData = async () => {
         try {
             await setLoad(false)
@@ -16,5 +16,6 @@ export const useCountries = () => {
             await setLoad(true)
         }
     }
+
     return {fetchData, load, countries}
 }
