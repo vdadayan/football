@@ -9,7 +9,6 @@ import {competitionsType} from "../../types/types";
 
 export const Competitions = () => {
     const {competitions, fetchData, load} = useCompetitions()
-    console.log(competitions)
     const {pathname} = useLocation()
     const idCountry = pathname.split('-').pop()
 
