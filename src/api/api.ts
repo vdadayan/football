@@ -21,5 +21,3 @@ export const data = {
         return res.data
     }
 }
-
-

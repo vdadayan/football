@@ -3,6 +3,9 @@ export type countryType = {
     country_logo: string
     country_name: string
 }
+export interface IInitialState{
+    countries: countryType[]
+}
 export interface IInitialStateCountries {
     countries: countryType[]
 }
