@@ -2,10 +2,12 @@ import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunkMiddleware from 'redux-thunk'
 import {CountriesReducer} from "./reducers/countriesReducer";
 import {CompetitionsReducer} from "./reducers/competitionsReducer";
+import {standingsReducer} from "./reducers/legueStandingsReducer";
 
 const rootReducer = combineReducers({
     countries: CountriesReducer,
-    competitions: CompetitionsReducer
+    competitions: CompetitionsReducer,
+    standings: standingsReducer
 })
 
 type RootReducerType = typeof rootReducer

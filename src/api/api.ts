@@ -15,6 +15,10 @@ export const data = {
     getCountries: async (): Promise<countryType[]> => {
         const res = await instance.get(`?action=get_countries&APIkey=${apiKey}`)
         return res.data
+    },
+    getleagueStandings: async (id: string)=> {
+        const res = await instance.get(`?action=get_standings&league_id=${id}&APIkey=${apiKey}`)
+        return res.data
     }
 }
 
