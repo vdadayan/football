@@ -1,4 +1,4 @@
-import React, {FC, MouseEventHandler} from 'react'
+import React, {FC} from 'react'
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {standingsThunk} from "../../redux/reducers/legueStandingsReducer";

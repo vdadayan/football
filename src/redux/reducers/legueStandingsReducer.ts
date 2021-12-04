@@ -1,11 +1,12 @@
-import {competitionsType, IInitialStandings} from "../../types/types";
+import {IInitialStandings, standingGroup} from "../../types/types";
 import {InferActionsType} from "../store";
 import {data} from "../../api/api";
 
 const STANDINGS = 'STANDINGS'
 
 const InitialState: IInitialStandings = {
-    standings: []
+    standings: [],
+    teams: []
 }
 
 export const standingsReducer = (state = InitialState, action:ActionsType) => {
@@ -13,7 +14,8 @@ export const standingsReducer = (state = InitialState, action:ActionsType) => {
         case "STANDINGS": {
             return {
                 ...state,
-                standings: action.standings
+                standings: action.standings.leagueStanding,
+                teams: action.standings.teams
             }
         }
         default: {
@@ -25,7 +27,7 @@ export const standingsReducer = (state = InitialState, action:ActionsType) => {
 type ActionsType = InferActionsType<typeof actions>
 
 const actions = {
-    standingsAction: (standings: competitionsType[]) => {
+    standingsAction: (standings: standingGroup) => {
         return ({type: STANDINGS, standings} as const)
     }
 }

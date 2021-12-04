@@ -1,11 +1,27 @@
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #2f8d4c;
+  padding: 5px 10px;
   &__logo {
     width: auto;
     height: 200px;
     max-width: 50px;
     max-height: 50px;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 25px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    .link {
+      margin-right: 5px;
+    }
   }
 }

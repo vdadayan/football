@@ -14,12 +14,6 @@ type ListItemType = {
     id: string
 }
 
-type count = {
-    country_id: string
-    country_logo: string
-    country_name: string
-}
-
 export const List = () => {
     const {load, fetchData, countries} = useCountries()
     useEffect(() => {

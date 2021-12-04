@@ -1,4 +1,4 @@
-import axios, {AxiosResponse} from 'axios'
+import axios from 'axios'
 import {competitionsType, countryType} from "../types/types";
 
 const apiKey = '3c7ffef2c9c2079d5ac63d88aa8872f56204dd091dcfacb593becb8cb3d811a2'
@@ -18,6 +18,10 @@ export const data = {
     },
     getleagueStandings: async (id: string)=> {
         const res = await instance.get(`?action=get_standings&league_id=${id}&APIkey=${apiKey}`)
-        return res.data
+        const resTeams = await instance.get(`https://apiv3.apifootball.com/?action=get_teams&league_id=${id}&APIkey=${apiKey}`)
+        return {
+            leagueStanding: res.data,
+            teams: resTeams.data
+        }
     }
 }
