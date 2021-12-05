@@ -1,16 +1,14 @@
 import {standingsType} from "../../types/types";
 import React, {FC} from "react";
-import {useStanding} from "../../hooks/useStanding";
 import {MyLink} from "../../components/elements/MyLink";
 import classnames from "classnames";
 
 type RowType = {
     item: standingsType
-    getIdLink: any
+    getIdLink?: any
 }
 
 export const StandingRow: FC<RowType> = ({item, getIdLink}) => {
-    const {teams} = useStanding()
     const {
         overall_league_position,
         team_name,

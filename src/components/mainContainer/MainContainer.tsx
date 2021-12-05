@@ -3,11 +3,11 @@ import {Container} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import {Header} from "../header/Header";
 
-type MainContainer = {
+type MainContainerType = {
     children: any
 }
 
-export const MainContainer: FC<MainContainer> = ({children}) => {
+export const MainContainer: FC<MainContainerType> = ({children}) => {
     return (
         <Container>
             <Grid container spacing={3}>

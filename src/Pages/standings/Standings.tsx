@@ -9,14 +9,8 @@ import {useLocationId} from "../../hooks/useLocationId";
 
 
 export const Standings = () => {
-    let [teamShow, setTeamShow] = useState<teams[]>([])
     const {standings, teams, load, fetchData} = useStanding()
     const {urlId} = useLocationId()
-    const getIdLink = (e: any) => {
-        const {id} = e.currentTarget
-        const a = teams.filter((item: teams) => item.team_key === id)
-        setTeamShow([...a])
-    }
     useEffect(() => {
         if (!standings) return
         fetchData(urlId as string)
@@ -42,7 +36,7 @@ export const Standings = () => {
                     </thead>
                     <tbody>
                     {standings.map((item: standingsType) => {
-                        return <StandingRow key={item.team_id} getIdLink={getIdLink} item={item}/>
+                        return <StandingRow key={item.team_id} item={item}/>
                     })}
                     </tbody>
                 </table>
