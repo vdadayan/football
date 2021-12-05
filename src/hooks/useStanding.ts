@@ -8,7 +8,6 @@ export const useStanding = () => {
     const [load, setLoad] = useState(false)
     const {standings, teams} = useSelector((state: AppStateType) => state.standings)
     const fetchData = async (id: string) => {
-        console.log(1)
         try {
             await dispatch(standingsThunk(id))
             await setLoad(true)

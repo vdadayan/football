@@ -1,9 +1,9 @@
 import React, {FC, useEffect} from "react";
 import './list.scss';
 import {useCountries} from "../../hooks/useCountries";
-import {Loader} from "../loader/Loader";
+import {Loader} from "../../components/loader/Loader";
 import {countryType} from "../../types/types";
-import {MainContainer} from "../mainContainer/MainContainer";
+import {MainContainer} from "../../components/mainContainer/MainContainer";
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {competitionsThunk} from "../../redux/reducers/competitionsReducer";

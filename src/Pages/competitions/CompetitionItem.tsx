@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import {competitionsType} from "../../types/types";
-import {CompetitionLink} from "../elements/competitionLink";
+import {CompetitionLink} from "../../components/elements/competitionLink";
 
 export const CompetitionItem: FC<competitionsType> = (props) => {
     const {country_logo, league_name, league_season, league_id} = props
