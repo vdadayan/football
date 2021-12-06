@@ -17,6 +17,7 @@ export const data = {
         return res.data
     },
     getleagueStandings: async (id: string)=> {
+        localStorage.setItem('leagueId', id)
         const res = await instance.get(`?action=get_standings&league_id=${id}&APIkey=${apiKey}`)
         const resTeams = await instance.get(`https://apiv3.apifootball.com/?action=get_teams&league_id=${id}&APIkey=${apiKey}`)
         return {
