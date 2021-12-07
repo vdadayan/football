@@ -9,39 +9,48 @@ import {useLocationId} from "../../hooks/useLocationId";
 
 
 export const Standings = () => {
-    const {standings, teams, load, fetchData} = useStanding()
+    const {result, teams, load, fetchData} = useStanding()
     const {urlId} = useLocationId()
     useEffect(() => {
-        if (!standings) return
+        if (!result) return
         fetchData(urlId as string)
     }, [])
+        console.log(!result)
     if (!load) return <Loader/>
+
     return (
         <MainContainer>
-            <div className='standings'>
-                <table>
-                    <thead>
-                    <tr>
-                        <th/>
-                        <th/>
-                        <th>И</th>
-                        <th>В</th>
-                        <th>Н</th>
-                        <th>П</th>
-                        <th>З</th>
-                        <th>П</th>
-                        <th>+/-</th>
-                        <th>О</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {standings.map((item: standingsType) => {
-                        return <StandingRow key={item.team_id} item={item}/>
-                    })}
-                    </tbody>
-                </table>
-            </div>
+            {result.map((item: any) => {
+                console.log(item)
+                return (
+                    <div className='standings'>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th/>
+                                <th/>
+                                <th>И</th>
+                                <th>В</th>
+                                <th>Н</th>
+                                <th>П</th>
+                                <th>З</th>
+                                <th>П</th>
+                                <th>+/-</th>
+                                <th>О</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {item.map((ch: standingsType) => {
+                                return <StandingRow key={ch.team_id} item={ch}/>
+                            })}
+                            </tbody>
+                        </table>
+                    </div>
+                )
+            })}
+
         </MainContainer>
+
     )
 }
 
